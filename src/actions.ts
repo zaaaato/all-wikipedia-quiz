@@ -1,8 +1,8 @@
 "use server";
 
 import parse from "node-html-parser";
-import { groq } from "../groq";
-import { cleanArticleContent } from "../utils/cleanArticleContent";
+import { groq } from "./groq";
+import { cleanArticleContent } from "./utils/cleanArticleContent";
 
 export const generateQuiz = async (): Promise<{
   question: string;
@@ -10,7 +10,7 @@ export const generateQuiz = async (): Promise<{
   url: string;
 }> => {
   try {
-    const res = await fetch("http://ja.wikipedia.org/wiki/Special:Randompage");
+    const res = await fetch("https://ja.wikipedia.org/wiki/Special:Randompage");
     const randomArticle = await res.text();
     const url = res.url;
 

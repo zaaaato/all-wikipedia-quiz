@@ -1,4 +1,4 @@
-import { generateQuiz } from "@/app/actions";
+import { generateQuiz } from "@/actions";
 import { AnswerSection } from "./AnswerSection";
 import { redirect } from "next/navigation";
 
