@@ -2,8 +2,6 @@ import { generateQuiz } from "@/actions";
 import { AnswerSection } from "./AnswerSection";
 import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-
 export const Quiz: React.FC = async () => {
   const quiz = await generateQuiz();
 

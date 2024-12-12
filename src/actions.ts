@@ -10,7 +10,12 @@ export const generateQuiz = async (): Promise<{
   url: string;
 }> => {
   try {
-    const res = await fetch("https://ja.wikipedia.org/wiki/Special:Randompage");
+    const res = await fetch(
+      "https://ja.wikipedia.org/wiki/Special:Randompage",
+      {
+        cache: "no-store",
+      }
+    );
     const randomArticle = await res.text();
     const url = res.url;
 
