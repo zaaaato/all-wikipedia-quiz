@@ -1,20 +1,16 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
+
 
 type Props = {
   answer: string;
   url: string;
-  reload: () => Promise<void>;
 };
 
-export const AnswerSection: React.FC<Props> = ({ answer, url, reload }) => {
+export const AnswerSection: React.FC<Props> = ({ answer, url }) => {
   const [answerShown, setAnswerShown] = useState(false);
   const [isNewQuizLoading, setIsNewQuizLoading] = useState(false);
-
-  useEffect(() => {
-    setIsNewQuizLoading(false);
-  }, [answer]);
 
   return (
     <div className="mt-8">
@@ -42,8 +38,7 @@ export const AnswerSection: React.FC<Props> = ({ answer, url, reload }) => {
             className="mt-8 btn btn-primary"
             disabled={isNewQuizLoading}
             onClick={() => {
-              setIsNewQuizLoading(true);
-              reload();
+              location.href = '/';
             }}
           >
             別の問題に挑戦！
